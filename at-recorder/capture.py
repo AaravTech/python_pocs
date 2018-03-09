@@ -3,6 +3,7 @@ import sys
 import argparse
 import shlex
 import os
+import psutil
 
 #First we define the default values of the main parameters
 DEFAULT_RESOLUTION = "1366x768"
@@ -28,6 +29,7 @@ class CaptureScreen(object):
 	def start(self):
 		try:
 			self.process = subprocess.Popen(self.arguments)
+			self.resumable_process = psutil.Process(self.process.pid)
 			# self.process.communicate()[0]
 			return True
 		except Exception as e:
@@ -36,6 +38,12 @@ class CaptureScreen(object):
 
 	def stop(self):
 		self.process.kill()
+
+	def resume(self):
+		self.resumable_process.resume()
+
+	def pause(self):
+		self.resumable_process.suspend()
 		
 	
 
