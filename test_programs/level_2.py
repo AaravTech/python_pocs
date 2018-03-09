@@ -4,9 +4,6 @@ class L2Programs:
 
     def program_8(self):
         ''' 
-        Question 8
-        ==========
-        Question:
         Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
         Suppose the following input is supplied to the program:
         without,hello,bag,world
@@ -23,11 +20,6 @@ class L2Programs:
        
     def program_9(self):
         ''' 
-        ====================================================================
-        Question 9
-        Level 2
-
-        Question:
         Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
         Suppose the following input is supplied to the program:
         Hello world
@@ -51,10 +43,7 @@ class L2Programs:
             print(s.upper())
 
     def program_10(self):
-        ''' Question 10
-        Level 2
-
-        Question:
+        '''
         Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
         Suppose the following input is supplied to the program:
         hello world and practice makes perfect and hello world again
@@ -70,10 +59,7 @@ class L2Programs:
         print(answer)
 
     def program_11(self):
-        ''' Question 11
-        Level 2
-
-        Question:
+        '''
         Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
         Example:
         0100,0011,1010,10010100,0011,1010,1001
@@ -90,10 +76,6 @@ class L2Programs:
 
     def program_12(self):
         ''' 
-        Question 12
-        Level 2
-
-        Question:
         Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
         The numbers obtained should be printed in a comma-separated sequence on a single line.
 
