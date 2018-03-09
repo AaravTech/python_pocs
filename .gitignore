@@ -2,3 +2,5 @@
 **/**.pyc
 venv27
 venv35
+
+**/__pycache__
