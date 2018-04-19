@@ -6,7 +6,7 @@ class Application(tk.Frame):
     def __init__(self, isapp=True, name="at_recorder"):
         tk.Frame.__init__(self, name=name)
         self.grid()
-        self.master.minsize(500, 500)
+        self.master.minsize(100, 100)
         self.master.title('AT Recorder')
         self.isapp = isapp
         self._generate_menu()
@@ -56,6 +56,7 @@ class Application(tk.Frame):
         self.bind_all('<Control-c>', self.master.destroy)
 
     def start_recording(self, event=None):
+        self.master.iconify()
         self.start_recording_btn['state'] = 'disabled'
         self.stop_recording_btn['state'] = 'normal'
         self.pause_recording_btn['state'] = 'normal'
