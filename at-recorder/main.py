@@ -58,7 +58,6 @@ class Application(Frame):
         self.bind_all('<Control-c>', self.close_app)
 
     def start_recording(self, event=None):
-        self.master.iconify()
         self.start_recording_btn['state'] = 'disabled'
         self.stop_recording_btn['state'] = 'normal'
         self.pause_recording_btn['state'] = 'normal'
@@ -66,6 +65,7 @@ class Application(Frame):
         outputfile = "_".join(timestamp.split()) + ".mkv"
         self.recorder = CaptureScreen(outputfile=outputfile)
         self.recorder.start()
+        self.master.iconify()
 
     def resume_recording(self, event=None):
         self.pause_recording_btn['state'] = 'normal'
@@ -85,6 +85,7 @@ class Application(Frame):
         self.recorder.stop()
 
     def close_app(self, event=None):
+        self.stop_recording()
         self.master.destroy()
 
     def browsefunc(self, event=None):
@@ -100,7 +101,7 @@ class Application(Frame):
 
         # create a pulldown menu, and add it to the menu bar
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="Exit", command=self.master.destroy)
+        filemenu.add_command(label="Exit", command=self.close_app)
         menubar.add_cascade(label="File", menu=filemenu)
 
         helpmenu = Menu(menubar, tearoff=0)
