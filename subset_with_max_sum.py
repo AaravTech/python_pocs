@@ -39,12 +39,20 @@ class Calculator(object):
         second = 0
         temp = 0
         for e in self.data:
+            print("===============before=============")
+            print("first: ",first)
+            print("second: ", second)
+            print("temp: ", temp)
             temp = first if first > second else second
             if e < 0:
                 second = first
             else:
                 second = first + e
             first = temp
+            print("===============after=============")
+            print("first: ",first)
+            print("second: ", second)
+            print("temp: ", temp)
 
         self.max_sum = second if second > first else first
 

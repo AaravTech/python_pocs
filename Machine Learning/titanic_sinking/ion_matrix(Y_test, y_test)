@@ -1,0 +1,65 @@
+[0;31mSignature:[0m [0mconfusion_matrix[0m[0;34m([0m[0my_true[0m[0;34m,[0m [0my_pred[0m[0;34m,[0m [0mlabels[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0msample_weight[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0m
+[0;31mDocstring:[0m
+Compute confusion matrix to evaluate the accuracy of a classification
+
+By definition a confusion matrix :math:`C` is such that :math:`C_{i, j}`
+is equal to the number of observations known to be in group :math:`i` but
+predicted to be in group :math:`j`.
+
+Thus in binary classification, the count of true negatives is
+:math:`C_{0,0}`, false negatives is :math:`C_{1,0}`, true positives is
+:math:`C_{1,1}` and false positives is :math:`C_{0,1}`.
+
+Read more in the :ref:`User Guide <confusion_matrix>`.
+
+Parameters
+----------
+y_true : array, shape = [n_samples]
+    Ground truth (correct) target values.
+
+y_pred : array, shape = [n_samples]
+    Estimated targets as returned by a classifier.
+
+labels : array, shape = [n_classes], optional
+    List of labels to index the matrix. This may be used to reorder
+    or select a subset of labels.
+    If none is given, those that appear at least once
+    in ``y_true`` or ``y_pred`` are used in sorted order.
+
+sample_weight : array-like of shape = [n_samples], optional
+    Sample weights.
+
+Returns
+-------
+C : array, shape = [n_classes, n_classes]
+    Confusion matrix
+
+References
+----------
+.. [1] `Wikipedia entry for the Confusion matrix
+       <https://en.wikipedia.org/wiki/Confusion_matrix>`_
+
+Examples
+--------
+>>> from sklearn.metrics import confusion_matrix
+>>> y_true = [2, 0, 2, 2, 0, 1]
+>>> y_pred = [0, 0, 2, 2, 0, 2]
+>>> confusion_matrix(y_true, y_pred)
+array([[2, 0, 0],
+       [0, 0, 1],
+       [1, 0, 2]])
+
+>>> y_true = ["cat", "ant", "cat", "cat", "ant", "bird"]
+>>> y_pred = ["ant", "ant", "cat", "cat", "ant", "cat"]
+>>> confusion_matrix(y_true, y_pred, labels=["ant", "bird", "cat"])
+array([[2, 0, 0],
+       [0, 0, 1],
+       [1, 0, 2]])
+
+In the binary case, we can extract true positives, etc as follows:
+
+>>> tn, fp, fn, tp = confusion_matrix([0, 1, 0, 1], [1, 1, 1, 0]).ravel()
+>>> (tn, fp, fn, tp)
+(0, 2, 1, 1)
+[0;31mFile:[0m      ~/.virtualenvs/python_poc35/lib/python3.5/site-packages/sklearn/metrics/classification.py
+[0;31mType:[0m      function
