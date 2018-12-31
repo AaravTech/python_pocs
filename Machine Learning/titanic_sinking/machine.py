@@ -25,9 +25,6 @@ Y_train = train_df.loc[:, ["Survived"]]
 X_test = test_df.loc[:, ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]]
 Y_test = predict_df.loc[:, ["Survived"]]
 
-# Reshaping Prediction data
-Y_train = Y_train.reshape
-
 # 2. Processing categorical data
 # --------------------
 label_encoder = LabelEncoder()
@@ -54,8 +51,13 @@ regressor.fit(X_train, Y_train)
 y_test = regressor.predict(X_test)
 
 # --------------------
-# Plotting result
+# Evaluating model
 # --------------------
 c_matrix = confusion_matrix(Y_test, y_test)
 accuracy = c_matrix.diagonal().sum() * 100 / c_matrix.sum()
 print("Accuracy of prediction %.3f" % (accuracy))
+
+# Output Predicted data
+output_df = pd.DataFrame({'PassengerId':test_df.PassengerId.values.tolist(), 'Survived':y_test})
+print(output_df.head())
+output_df.to_csv("submission.csv", sep=",", index=False)
