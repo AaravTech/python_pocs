@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for ourfirstscraper project
+# Scrapy settings for epolitics project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'ourfirstscraper'
+BOT_NAME = 'epolitics'
 
-SPIDER_MODULES = ['ourfirstscraper.spiders']
-NEWSPIDER_MODULE = 'ourfirstscraper.spiders'
+SPIDER_MODULES = ['epolitics.spiders']
+NEWSPIDER_MODULE = 'epolitics.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'ourfirstscraper (+http://www.yourdomain.com)'
+#USER_AGENT = 'epolitics (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'ourfirstscraper.middlewares.OurfirstscraperSpiderMiddleware': 543,
+#    'epolitics.middlewares.epoliticsSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'ourfirstscraper.middlewares.OurfirstscraperDownloaderMiddleware': 543,
+#    'epolitics.middlewares.epoliticsDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'ourfirstscraper.pipelines.OurfirstscraperPipeline': 300,
-#}
+ITEM_PIPELINES = {
+#    'epolitics.pipelines.MongoPipeline': 300,
+   'epolitics.pipelines.EpoliticsPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,4 +92,4 @@ ROBOTSTXT_OBEY = True
 
 #Export as CSV Feed
 FEED_FORMAT = "csv"
-FEED_URI = "reddit.csv"
+FEED_URI = "temp.csv"
